@@ -1,0 +1,17 @@
+<h1>Login</h1>
+<hr />
+<?php if( $this->error ): ?>	
+	<div class="alert alert-danger" role="alert"><b>Oooops!</b> Usuário e senha inválidos.</div>
+<?php endif; ?>
+
+<?php
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('livraria-admin-auth', array('controller'=>'auth', 'action'=>'index')));
+
+	$form->prepare();
+	echo $this->form()->openTag($form);
+	echo $this->formRow($form->get('email'))."<br />";
+	echo $this->formRow($form->get('password'))."<br />";
+	echo $this->formSubmit($form->get('submit'));
+	echo $this->form()->closeTag();
+?>
